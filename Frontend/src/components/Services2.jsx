@@ -34,7 +34,7 @@ function Services2() {
                         <h2 className="card-title text-xl lg:text-2xl">{card.title}</h2>
                         <p className="mt-2">Click the button to learn more about this service.</p>
                         <div className="card-actions justify-end mt-4">
-                            <a href={card.link} className="btn btn-primary">Learn More</a>
+                            <a href={card.link} className="btn btn-primary">Learn More</a> 
                         </div>
                     </div>
                 </div>
