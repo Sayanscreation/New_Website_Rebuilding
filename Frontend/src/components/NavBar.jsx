@@ -1,94 +1,146 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from "react-router-dom";
-
+import { HashLink } from 'react-router-hash-link';
 
 function NavBar() {
     const [isScrolled, setIsScrolled] = useState(false);
+    const [openMenu, setOpenMenu] = useState(null);
+    const navRef = useRef(null);
 
-    // Add scroll listener to toggle `isScrolled`
+    // Handle scrolling to toggle the navbar background
     useEffect(() => {
         const handleScroll = () => {
-            if (window.scrollY > 0) {
-                setIsScrolled(true);
-            } else {
-                setIsScrolled(false);
+            setIsScrolled(window.scrollY > 0);
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
+    // Detect clicks outside the navigation menu to close submenus
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (navRef.current && !navRef.current.contains(event.target)) {
+                setOpenMenu(null); // Close any open menus
             }
         };
 
-        window.addEventListener("scroll", handleScroll);
-
-        // Cleanup on unmount
-        return () => {
-            window.removeEventListener("scroll", handleScroll);
-        };
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => document.removeEventListener('mousedown', handleClickOutside);
     }, []);
+
+    const toggleMenu = (menu) => {
+        setOpenMenu((prev) => (prev === menu ? null : menu));
+    };
 
     const navItems = (
         <>
             <li>
-                <details className="relative group">
-                    <summary className="cursor-pointer">Home</summary>
-                    <ul className="absolute left-0 bg-blue-700 text-white p-2 shadow-md group-open:block hidden z-20 min-w-max">
-                        <li className="hover:bg-blue-800 p-1"><a>Marketing Heading & Subheading </a></li>
-                        <li className="hover:bg-blue-800 p-1"><a>Discover more</a></li>
-                        <li className="hover:bg-blue-800 p-1"><a>Why Bengal Engineers</a></li>
-                        <li className="hover:bg-blue-800 p-1"><a>Service Offerings</a></li>
-
-                    </ul>
-                </details>
-            </li>
-            <li>
-                <details className="relative group">
-                    <summary className="cursor-pointer">
-                        <Link to="/about-us">About us</Link>
+                <details className="relative" open={openMenu === 'home'}>
+                    <summary
+                        className="cursor-pointer"
+                        onClick={(e) => {
+                            e.preventDefault();
+                            toggleMenu('home');
+                        }}
+                    >
+                        Home
                     </summary>
-                    <ul className="absolute left-0 bg-blue-700 text-white p-2 shadow-md group-open:block hidden z-20 min-w-max">
-                        <li className="hover:bg-blue-800 p-1"><Link to="/about-us#firm-overview">Firm Overview</Link></li>
-                        <li className="hover:bg-blue-800 p-1"><Link to="/about-us#meet-subra">Meet Subra</Link></li>
-                        <li className="hover:bg-blue-800 p-1"><Link to="/about-us#mbe-certifications">MBE Certifications</Link></li>
-                    </ul>
+                    {openMenu === 'home' && (
+                        <ul className="absolute left-0 bg-blue-700 text-white p-2 shadow-md z-20 min-w-max">
+                            <li className="hover:bg-blue-800 p-1"><a>Marketing Heading & Subheading</a></li>
+                            <li className="hover:bg-blue-800 p-1"><a>Discover more</a></li>
+                            <li className="hover:bg-blue-800 p-1"><a>Why Bengal Engineers</a></li>
+                            <li className="hover:bg-blue-800 p-1"><a>Service Offerings</a></li>
+                        </ul>
+                    )}
                 </details>
             </li>
             <li>
-                <details className="relative group">
-                    <summary className="cursor-pointer">Services</summary>
-                    <ul className="absolute left-0 bg-blue-700 text-white p-2 shadow-md group-open:block hidden z-20 min-w-max">
-                        <li className="hover:bg-blue-800 p-1"><a>Site/Civil Engineering Services</a></li>
-                        <li className="hover:bg-blue-800 p-1"><a>Land Surveying Services</a></li>
-                        <li className="hover:bg-blue-800 p-1"><a>Environmental and Water Resources</a></li>
-                        <li className="hover:bg-blue-800 p-1"><a>Utility Engineering Services</a></li>
-                        <li className="hover:bg-blue-800 p-1"><a>Traffic Engineering Services</a></li>
-                        <li className="hover:bg-blue-800 p-1"><a>Structural Engineering Services</a></li>
-                        <li className="hover:bg-blue-800 p-1"><a>Alternative Delivery - Design-Build</a></li>
-                    </ul>
+                <details className="relative" open={openMenu === 'about'}>
+                    <summary
+                        className="cursor-pointer"
+                        onClick={(e) => {
+                            e.preventDefault();
+                            toggleMenu('about');
+                        }}
+                    >
+                        <HashLink to="/about-us#">About us</HashLink>
+                    </summary>
+                    {openMenu === 'about' && (
+                        <ul className="absolute left-0 bg-blue-700 text-white p-2 shadow-md z-20 min-w-max">
+                            <li className="hover:bg-blue-800 p-1">
+                                <HashLink to="/about-us#firm-overview">Firm Overview</HashLink>
+                            </li>
+                            <li className="hover:bg-blue-800 p-1">
+                                <HashLink to="/about-us#meet-subra">Meet Subra</HashLink>
+                            </li>
+                            <li className="hover:bg-blue-800 p-1">
+                                <HashLink to="/about-us#mbe-certifications">MBE Certifications</HashLink>
+                            </li>
+                        </ul>
+                    )}
                 </details>
             </li>
             <li>
-                <details className='relative group'>
-                    <summary className='cursor-pointer'>Markets </summary>
-                    <ul className='absolute left-0 bg-blue-700 text-white p-2 shadow-md group-open:block hidden z-20 min-w-max'>
-                        <li className='hover:bg-blue-800 p-1'><a>Commercial</a></li>
-                        <li className='hover:bg-blue-800 p-1'><a>Education</a></li>
-                        <li className='hover:bg-blue-800 p-1'><a>Energy</a></li>
-                        <li className='hover:bg-blue-800 p-1'><a>Religious</a></li>
-                        <li className='hover:bg-blue-800 p-1'><a>Residential</a></li>
-                        <li className='hover:bg-blue-800 p-1'><a>Transportation</a></li>
-                        <li className='hover:bg-blue-800 p-1'><a>Water Resources</a></li>
-
-                    </ul>
-
+                <details className="relative" open={openMenu === 'services'}>
+                    <summary
+                        className="cursor-pointer"
+                        onClick={(e) => {
+                            e.preventDefault();
+                            toggleMenu('services');
+                        }}
+                    >
+                        <Link to="/Services">Services</Link>
+                    </summary>
+                    {openMenu === 'services' && (
+                        <ul className="absolute left-0 bg-blue-700 text-white p-2 shadow-md z-20 min-w-max">
+                            <li className="hover:bg-blue-800 p-1"><a>Site/Civil Engineering Services</a></li>
+                            <li className="hover:bg-blue-800 p-1"><a>Land Surveying Services</a></li>
+                            <li className="hover:bg-blue-800 p-1"><a>Environmental and Water Resources</a></li>
+                            <li className="hover:bg-blue-800 p-1"><a>Utility Engineering Services</a></li>
+                            <li className="hover:bg-blue-800 p-1"><a>Traffic Engineering Services</a></li>
+                            <li className="hover:bg-blue-800 p-1"><a>Structural Engineering Services</a></li>
+                            <li className="hover:bg-blue-800 p-1"><a>Alternative Delivery - Design-Build</a></li>
+                        </ul>
+                    )}
                 </details>
             </li>
+            <li>
+                <details className='relative' open={openMenu === 'markets'}>
+                    <summary
+                        className="cursor-pointer"
+                        onClick={(e) => {
+                            e.preventDefault();
+                            toggleMenu('markets');
+                        }}
+                    >
+                        Markets
+                    </summary>
+                    {openMenu === 'markets' && (
+                        <ul className='absolute left-0 bg-blue-700 text-white p-2 shadow-md z-20 min-w-max'>
+                            <li className='hover:bg-blue-800 p-1'><a>Commercial</a></li>
+                            <li className='hover:bg-blue-800 p-1'><a>Education</a></li>
+                            <li className='hover:bg-blue-800 p-1'><a>Energy</a></li>
+                            <li className='hover:bg-blue-800 p-1'><a>Religious</a></li>
+                            <li className='hover:bg-blue-800 p-1'><a>Residential</a></li>
+                            <li className='hover:bg-blue-800 p-1'><a>Transportation</a></li>
+                            <li className='hover:bg-blue-800 p-1'><a>Water Resources</a></li>
+                        </ul>
+                    )}
+                </details>
+            </li>
+
+
             <li><a>Projects</a></li>
             <li><a>Careers</a></li>
-
         </>
     );
 
     return (
-        <div className="relative z-10">
+        <div className="relative z-10" ref={navRef}>
             <div
-                className={`navbar shadow-md text-white fixed top-0 left-0 w-full md:px-20 pr-2 transition-colors duration-300 ${isScrolled ? "bg-blue-600" : "bg-blue-900 bg-opacity-60"
+                className={`navbar shadow-md text-white fixed top-0 left-0 w-full md:px-20 pr-2 transition-colors duration-300 ${isScrolled ? 'bg-blue-600' : 'bg-blue-900 bg-opacity-60'
                     }`}
             >
                 <div className="navbar-start">
@@ -116,19 +168,11 @@ function NavBar() {
                             {navItems}
                         </ul>
                     </div>
-                    <img
-                        src='/Color PNG.png'
-                        alt='logo'
-                        className="h-8 w-auto md:h-12"
-                    />
+                    <img src="/Color PNG.png" alt="logo" className="h-8 w-auto md:h-12" />
                 </div>
-
                 <div className="navbar-end md:pr-20 mr-5">
-                    {/* Desktop version */}
                     <div className="navbar-center hidden lg:flex">
-                        <ul className="menu menu-horizontal px-1">
-                            {navItems}
-                        </ul>
+                        <ul className="menu menu-horizontal px-1">{navItems}</ul>
                     </div>
                     <div>
                         <a className="btn sm:text-sm md:text-base sm:whitespace-normal md:whitespace-nowrap text-center">

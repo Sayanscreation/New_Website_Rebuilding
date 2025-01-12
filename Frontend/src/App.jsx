@@ -7,6 +7,7 @@ import Certifications from "./components/Certifications";
 import PastPerformance from "./components/PastPerformance";
 import Footer from "./components/Footer";
 import AboutUs from "./components/AboutUs";
+import ServicesPage from "./components/ServicesPage";
 
 const App = () => {
     return (
@@ -27,6 +28,15 @@ const App = () => {
                     element={
                         <>
                             <AboutUs />
+                            <Footer />
+                        </>
+                    }
+                />
+                <Route
+                    path="/Services"
+                    element={
+                        <>
+                            <ServicesPage />
                             <Footer />
                         </>
                     }
