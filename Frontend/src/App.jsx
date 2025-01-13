@@ -8,13 +8,14 @@ import PastPerformance from "./components/PastPerformance";
 import Footer from "./components/Footer";
 import AboutUs from "./components/AboutUs";
 import ServicesPage from "./components/ServicesPage";
+import CareerPage from "./components/Career";
 
 const App = () => {
     return (
         <Router>
             <NavBar />
             <Routes>
-                <Route path="/" element={
+                <Route path="/home" element={
                     <>
                         <Banner />
                         <Services2 />
@@ -37,6 +38,15 @@ const App = () => {
                     element={
                         <>
                             <ServicesPage />
+                            <Footer />
+                        </>
+                    }
+                />
+                <Route
+                    path="/Career"
+                    element={
+                        <>
+                            <CareerPage/>
                             <Footer />
                         </>
                     }

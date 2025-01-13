@@ -1,6 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Hepta+Slab:wght@1..900&family=Parkinsans:wght@300..800&family=Schibsted+Grotesk:ital,wght@0,400..900;1,400..900&display=swap');
 @import 'aos/dist/aos.css';
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+
+h1 {
+    font-family: "PT Serif", serif;
+    font-weight: 400;
+    font-style: normal;
+ 
+}
+
+body{
+    font-family: "Parkinsans", serif;
+}

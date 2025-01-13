@@ -41,17 +41,20 @@ function ServicesPage() {
                 breakpoint: 1024,
                 settings: {
                     slidesToShow: 2,
+                    centerMode: false,
                 },
             },
             {
                 breakpoint: 600,
                 settings: {
                     slidesToShow: 1,
+                    centerMode: false,
                 },
             },
         ],
     };
-    
+
+
 
     return (
         <div>
@@ -129,11 +132,14 @@ function ServicesPage() {
 
 
 
-            <div className="testimonial-carousel my-10 px-4">
+            <div className="testimonial-carousel my-10 px-6 max-w-screen-xl mx-auto">
                 <h2 className="text-center text-3xl font-bold mb-8">What Our Clients Say</h2>
                 <Slider {...settings}>
                     {testimonials.map((item) => (
-                        <div key={item.id} className="testimonial-card mx-2 w-50 p-6 bg-base-300 shadow-lg rounded-lg">
+                        <div
+                            key={item.id}
+                            className="testimonial-card mx-4 h-auto w-80 max-w-sm p-6 bg-base-300 shadow-lg rounded-lg"
+                        >
                             {/* Upper Section */}
                             <div className="flex items-center mb-4">
                                 <img
@@ -152,6 +158,8 @@ function ServicesPage() {
                     ))}
                 </Slider>
             </div>
+
+
 
 
         </div>

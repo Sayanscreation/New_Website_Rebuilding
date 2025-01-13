@@ -44,7 +44,7 @@ function NavBar() {
                             toggleMenu('home');
                         }}
                     >
-                        Home
+                        <HashLink to="/home">Home</HashLink>
                     </summary>
                     {openMenu === 'home' && (
                         <ul className="absolute left-0 bg-blue-700 text-white p-2 shadow-md z-20 min-w-max">
@@ -133,7 +133,7 @@ function NavBar() {
 
 
             <li><a>Projects</a></li>
-            <li><a>Careers</a></li>
+            <li> <Link to="/Career">Careers</Link></li>
         </>
     );
 
@@ -168,7 +168,7 @@ function NavBar() {
                             {navItems}
                         </ul>
                     </div>
-                    <img src="/Color PNG.png" alt="logo" className="h-8 w-auto md:h-12" />
+                    <img src="/Color---JPG.jpg" alt="logo" className="h-8 w-auto md:h-12" />
                 </div>
                 <div className="navbar-end md:pr-20 mr-5">
                     <div className="navbar-center hidden lg:flex">
