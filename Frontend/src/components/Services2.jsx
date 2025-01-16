@@ -14,7 +14,7 @@ function Services2() {
     return (
         <div className='px-4 md:px-10 lg:px-40'>
             <div className='flex justify-center mt-6 mb-6'>
-                <h1 className='text-3xl text-blue-600 font-semibold'>Service Offerings</h1>
+                <h1 className='text-3xl md:text-5xl text-customBlue font-semibold'>Service Offerings</h1>
             </div>
             {cards.map((card, index) => (
                 <div
@@ -29,15 +29,15 @@ function Services2() {
                             className="h-full w-full object-cover transform transition-transform duration-300 hover:scale-110"
                         />
                     </figure>
-                    <div className="card-body w-full lg:w-1/2 px-4 py-6 lg:px-8">
-                        <h2 className="card-title text-xl lg:text-2xl">{card.title}</h2>
+                    <div className="card-body w-full lg:w-1/2 px-4 py-6 lg:px-8" data-aos="fade-right">
+                        <h2 className="card-title text-xl lg:text-3xl">{card.title}</h2>
                         <p className="mt-2">
                             {card.description}
                         </p>
                         <div className="card-actions justify-end mt-4">
                             <a
                                 href={card.link}
-                                className="btn bg-blue-700 text-white hover:bg-blue-800"
+                                className="btn bg-customBlue text-white hover:bg-blue-800"
                             >
                                 Learn More
                             </a>

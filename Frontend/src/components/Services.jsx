@@ -88,7 +88,7 @@ function Services() {
         <div>
             <div className=' mb-10'>
                 {/* Header */}
-                <div className='flex justify-center mt-6'>
+                <div className='flex justify-center mt-10 pt-6'>
                     <h1 className='text-3xl'>Service Offerings</h1>
                 </div>
 

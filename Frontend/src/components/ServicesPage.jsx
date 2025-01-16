@@ -63,9 +63,10 @@ function ServicesPage() {
                     className="min-h-[60vh] sm:min-h-[70vh] w-full bg-cover bg-center flex items-center justify-center"
                     style={{ backgroundImage: `url('/Banner.jpg')` }}
                 >
-                    <div className="bg-black bg-opacity-50 text-white p-4 sm:p-8 rounded-md text-center max-w-md lg:max-w-xl">
+                   <div className="bg-black bg-opacity-50 text-white p-4 sm:p-8 rounded-md text-center max-w-full">
+
                         <h1 className="text-2xl sm:text-5xl font-bold mb-4">
-                            Services
+                        Delivering Excellence Through Expertise
                         </h1>
                     </div>
                 </div>
