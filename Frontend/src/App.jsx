@@ -9,6 +9,7 @@ import Footer from "./components/Footer";
 import AboutUs from "./components/AboutUs";
 import ServicesPage from "./components/ServicesPage";
 import CareerPage from "./components/Career";
+import About from "./components/About";
 
 const App = () => {
     return (
@@ -18,6 +19,7 @@ const App = () => {
                 <Route path="/home" element={
                     <>
                         <Banner />
+                        <About/>
                         <Services2 />
                         <Certifications />
                         <PastPerformance />
