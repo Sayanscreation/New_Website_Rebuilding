@@ -140,7 +140,8 @@ function NavBar() {
     return (
         <div className="relative z-10" ref={navRef}>
             <div
-                className={`navbar shadow-md text-white fixed top-0 left-0 w-full md:px-20 pr-2 transition-colors duration-300 ${isScrolled ? 'bg-blue-600' : 'bg-blue-900 bg-opacity-60'
+               className={`navbar shadow-md fixed top-0 left-0 w-full md:px-20 pr-2 transition-colors duration-300 
+  ${isScrolled ? 'bg-white text-blue-500' : 'bg-white bg-opacity-50 text-blue-500'
                     }`}
             >
                 <div className="navbar-start">
@@ -163,7 +164,7 @@ function NavBar() {
                         </div>
                         <ul
                             tabIndex={0}
-                            className="menu menu-sm dropdown-content bg-blue-700 text-white rounded-none z-[1] mt-3 w-auto p-2 shadow ml-5"
+                            className="menu menu-sm dropdown-content bg-customBlue text-white rounded-none z-[1] mt-3 w-auto p-2 shadow ml-5"
                         >
                             {navItems}
                         </ul>
@@ -175,7 +176,7 @@ function NavBar() {
                         <ul className="menu menu-horizontal px-1">{navItems}</ul>
                     </div>
                     <div>
-                        <a className="btn sm:text-sm md:text-base sm:whitespace-normal md:whitespace-nowrap text-center">
+                    <a className="btn sm:text-sm md:text-base sm:whitespace-normal md:whitespace-nowrap text-center bg-base text-customGreen border border-customBlue hover:bg-customGreen hover:text-white px-4 py-2 rounded">
                             Contact us
                         </a>
                     </div>
