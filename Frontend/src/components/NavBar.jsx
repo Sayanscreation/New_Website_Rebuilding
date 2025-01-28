@@ -47,11 +47,19 @@ function NavBar() {
                         <HashLink to="/home">Home</HashLink>
                     </summary>
                     {openMenu === 'home' && (
-                        <ul className="absolute left-0 bg-blue-700 text-white p-2 shadow-md z-20 min-w-max">
-                            <li className="hover:bg-blue-800 p-1"><a>Marketing Heading & Subheading</a></li>
-                            <li className="hover:bg-blue-800 p-1"><a>Discover more</a></li>
-                            <li className="hover:bg-blue-800 p-1"><a>Why Bengal Engineers</a></li>
-                            <li className="hover:bg-blue-800 p-1"><a>Service Offerings</a></li>
+                        <ul className="absolute left-0 bg-customBlue text-white p-2 shadow-md z-20 min-w-max">
+                            <li className="hover:customHvrBlue p-1">
+                                <HashLink to="/home#firm-overview">Why Bengal Engineers</HashLink>
+                            </li>
+                            <li className="hover:customHvrBlue p-1">
+                                <HashLink to="/home#meet-subra">Service Offerings</HashLink>
+                            </li>
+                            <li className="hover:customHvrBlue p-1">
+                                <HashLink to="/home#meet-subra">Active Certifications</HashLink>
+                            </li>
+                            <li className="hover:customHvrBlue p-1">
+                                <HashLink to="/home#mbe-certifications">Past Performances</HashLink>
+                            </li>
                         </ul>
                     )}
                 </details>
@@ -68,14 +76,14 @@ function NavBar() {
                         <HashLink to="/about-us#">About us</HashLink>
                     </summary>
                     {openMenu === 'about' && (
-                        <ul className="absolute left-0 bg-blue-700 text-white p-2 shadow-md z-20 min-w-max">
-                            <li className="hover:bg-blue-800 p-1">
+                        <ul className="absolute left-0 bg-customBlue text-white p-2 shadow-md z-20 min-w-max">
+                            <li className="hover:customHvrBlue p-1">
                                 <HashLink to="/about-us#firm-overview">Firm Overview</HashLink>
                             </li>
-                            <li className="hover:bg-blue-800 p-1">
+                            <li className="hover:customHvrBlue p-1">
                                 <HashLink to="/about-us#meet-subra">Meet Subra</HashLink>
                             </li>
-                            <li className="hover:bg-blue-800 p-1">
+                            <li className="hover:customHvrBlue p-1">
                                 <HashLink to="/about-us#mbe-certifications">MBE Certifications</HashLink>
                             </li>
                         </ul>
@@ -94,14 +102,14 @@ function NavBar() {
                         <Link to="/Services">Services</Link>
                     </summary>
                     {openMenu === 'services' && (
-                        <ul className="absolute left-0 bg-blue-700 text-white p-2 shadow-md z-20 min-w-max">
-                            <li className="hover:bg-blue-800 p-1"><a>Site/Civil Engineering Services</a></li>
-                            <li className="hover:bg-blue-800 p-1"><a>Land Surveying Services</a></li>
-                            <li className="hover:bg-blue-800 p-1"><a>Environmental and Water Resources</a></li>
-                            <li className="hover:bg-blue-800 p-1"><a>Utility Engineering Services</a></li>
-                            <li className="hover:bg-blue-800 p-1"><a>Traffic Engineering Services</a></li>
-                            <li className="hover:bg-blue-800 p-1"><a>Structural Engineering Services</a></li>
-                            <li className="hover:bg-blue-800 p-1"><a>Alternative Delivery - Design-Build</a></li>
+                        <ul className="absolute left-0 bg-customBlue text-white p-2 shadow-md z-20 min-w-max">
+                            <li className="hover:customHvrBlue p-1"><a>Site/Civil Engineering Services</a></li>
+                            <li className="hover:customHvrBlue p-1"><a>Land Surveying Services</a></li>
+                            <li className="hover:customHvrBlue p-1"><a>Environmental and Water Resources</a></li>
+                            <li className="hover:customHvrBlue p-1"><a>Utility Engineering Services</a></li>
+                            <li className="hover:customHvrBlue p-1"><a>Traffic Engineering Services</a></li>
+                            <li className="hover:customHvrBlue p-1"><a>Structural Engineering Services</a></li>
+                            <li className="hover:customHvrBlue p-1"><a>Alternative Delivery - Design-Build</a></li>
                         </ul>
                     )}
                 </details>
@@ -118,21 +126,21 @@ function NavBar() {
                         Markets
                     </summary>
                     {openMenu === 'markets' && (
-                        <ul className='absolute left-0 bg-blue-700 text-white p-2 shadow-md z-20 min-w-max'>
-                            <li className='hover:bg-blue-800 p-1'><a>Commercial</a></li>
-                            <li className='hover:bg-blue-800 p-1'><a>Education</a></li>
-                            <li className='hover:bg-blue-800 p-1'><a>Energy</a></li>
-                            <li className='hover:bg-blue-800 p-1'><a>Religious</a></li>
-                            <li className='hover:bg-blue-800 p-1'><a>Residential</a></li>
-                            <li className='hover:bg-blue-800 p-1'><a>Transportation</a></li>
-                            <li className='hover:bg-blue-800 p-1'><a>Water Resources</a></li>
+                        <ul className='absolute left-0 bg-customBlue text-white p-2 shadow-md z-20 min-w-max'>
+                            <li className='hover:customHvrBlue p-1'><a>Commercial</a></li>
+                            <li className='hover:customHvrBlue p-1'><a>Education</a></li>
+                            <li className='hover:customHvrBlue p-1'><a>Energy</a></li>
+                            <li className='hover:customHvrBlue p-1'><a>Religious</a></li>
+                            <li className='hover:customHvrBlue p-1'><a>Residential</a></li>
+                            <li className='hover:customHvrBlue p-1'><a>Transportation</a></li>
+                            <li className='hover:customHvrBlue p-1'><a>Water Resources</a></li>
                         </ul>
                     )}
                 </details>
             </li>
 
 
-            <li><a>Projects</a></li>
+            <li><Link to="/Projects">Projects</Link></li>
             <li> <Link to="/Career">Careers</Link></li>
         </>
     );
@@ -141,7 +149,7 @@ function NavBar() {
         <div className="relative z-10" ref={navRef}>
             <div
                className={`navbar shadow-md fixed top-0 left-0 w-full md:px-20 pr-2 transition-colors duration-300 
-  ${isScrolled ? 'bg-white text-blue-500' : 'bg-white bg-opacity-50 text-blue-500'
+  ${isScrolled ? 'bg-white text-blue-500' : 'bg-white bg-opacity-60 text-blue-500'
                     }`}
             >
                 <div className="navbar-start">
