@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { Link } from "react-router-dom";
 
 const CareerPage = () => {
     // Job data
@@ -41,7 +44,7 @@ const CareerPage = () => {
                     className="min-h-[5t 0vh] sm:min-h-[70vh] w-full bg-cover bg-center flex items-center justify-center"
                     style={{ backgroundImage: `url('/Banner.jpg')` }}
                 >
-                    <div className="bg-black bg-opacity-50 text-white p-4 sm:p-8 rounded-md text-center max-w-md lg:max-w-xl">
+                    <div className="bg-black bg-opacity-50 text-white p-4 sm:p-8 rounded-md text-center max-w-md lg:max-w-xl" data-aos="fade-right">
                         <h1 className="text-2xl sm:text-5xl font-bold mb-4">
                             Join Us, Shape Your Future
                         </h1>
@@ -170,7 +173,9 @@ const CareerPage = () => {
                                     {expandedJob === job.id ? "Read Less" : "Read More"}
                                 </button>
                                 <button className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
-                                    Apply
+                                    <Link to={`/Jobdetails`} className="text-white no-underline">
+                                        Apply
+                                    </Link>
                                 </button>
                             </div>
                         </div>
