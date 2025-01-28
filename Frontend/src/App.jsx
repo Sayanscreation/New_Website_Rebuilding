@@ -1,4 +1,5 @@
 import React from "react";
+
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import Banner from "./components/Banner";
@@ -10,6 +11,12 @@ import AboutUs from "./components/AboutUs";
 import ServicesPage from "./components/ServicesPage";
 import CareerPage from "./components/Career";
 import About from "./components/About";
+import Projectspage from "./components/projectspage";
+import Projectdetails1 from "./components/Projectdetails1";
+import ProjectDetails2 from "./components/ProjectDetails2";
+import Jobdetails from "./components/Jobdetails";
+import JobApplicationForm from "./components/JobApplicatonForm";
+
 
 const App = () => {
     return (
@@ -19,7 +26,7 @@ const App = () => {
                 <Route path="/home" element={
                     <>
                         <Banner />
-                        <About/>
+                        <About />
                         <Services2 />
                         <Certifications />
                         <PastPerformance />
@@ -48,11 +55,62 @@ const App = () => {
                     path="/Career"
                     element={
                         <>
-                            <CareerPage/>
+                            <CareerPage />
                             <Footer />
                         </>
                     }
                 />
+                <Route
+                    path="/Projects"
+                    element={
+                        <>
+                            <Projectspage />
+                            <Footer />
+                        </>
+                    }
+                />
+
+                <Route
+                    path="/Allprojects"
+                    element={
+                        <>
+                            <Projectdetails1 />
+                            <Footer />
+                        </>
+                    }
+                />
+
+                <Route
+                    path="/ProjectDetails"
+                    element={
+                        <>
+                            <ProjectDetails2 />
+                            <Footer />
+                        </>
+                    }
+                />
+
+
+                <Route
+                    path="/JobDetails"
+                    element={
+                        <>
+                            <Jobdetails />
+                            <Footer />
+                        </>
+                    }
+                />
+
+<Route
+                    path="/ApplicationForm"
+                    element={
+                        <>
+                            <JobApplicationForm />
+                            <Footer />
+                        </>
+                    }
+                />
+
             </Routes>
         </Router>
     );
