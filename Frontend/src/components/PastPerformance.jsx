@@ -49,8 +49,8 @@ const PastPerformance = () => {
 
     return (
         <div className="mt-6 mb-6 md:px-20">
-            <div className="flex justify-center mt-4 text-blue-600">
-                <h1 className="text-2xl md:text-3xl font-bold">Past Performances</h1>
+            <div className="flex justify-center mt-4 text-customBlue">
+                <h1 className="text-2xl md:text-5xl font-bold">Past Performances</h1>
             </div>
             <div>
                 <p className="p-2 md:p-6">
