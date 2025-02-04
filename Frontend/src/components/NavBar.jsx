@@ -123,7 +123,7 @@ function NavBar() {
                             toggleMenu('markets');
                         }}
                     >
-                        Markets
+                        <Link to="/Market">Market</Link>
                     </summary>
                     {openMenu === 'markets' && (
                         <ul className='absolute left-0 bg-customBlue text-white p-2 shadow-md z-20 min-w-max'>
