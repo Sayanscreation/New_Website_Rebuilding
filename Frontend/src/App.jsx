@@ -16,6 +16,7 @@ import Projectdetails1 from "./components/Projectdetails1";
 import ProjectDetails2 from "./components/ProjectDetails2";
 import Jobdetails from "./components/Jobdetails";
 import JobApplicationForm from "./components/JobApplicatonForm";
+import Market from "./components/Market";
 
 
 const App = () => {
@@ -101,7 +102,7 @@ const App = () => {
                     }
                 />
 
-<Route
+                <Route
                     path="/ApplicationForm"
                     element={
                         <>
@@ -110,6 +111,18 @@ const App = () => {
                         </>
                     }
                 />
+
+                <Route
+                    path="/Market"
+                    element={
+                        <>
+                            <Market />
+                            <Footer />
+                        </>
+                    }
+                />
+
+
 
             </Routes>
         </Router>
