@@ -76,24 +76,26 @@ function Projectspage() {
                 </div>
 
                 {/* Centered Image */}
+                {/* Centered Image */}
                 <div className="flex justify-center mt-6" data-aos="fade-up">
-                    <div className="relative group">
+                    <div className="relative group w-full md:w-1/3">
                         <a href={images[6].link}>
                             <img
                                 src={images[6].src}
                                 alt={images[6].title}
-                                className="w-full max-w-xs h-48 object-cover rounded-lg transform transition-transform duration-300 group-hover:scale-105"
+                                className="w-full h-48 object-cover rounded-lg transform transition-transform duration-300 group-hover:scale-105"
                             />
                         </a>
                         <a
                             href={images[6].link}
-                            className="block mt-2 text-lg font-bold text-blue-600 group-hover:underline text-left"
+                            className="block mt-2 text-lg font-bold text-gray-800 group-hover:underline text-center"
                         >
                             {images[6].title}
                         </a>
-                        <p className="text-gray-500 text-sm text-left">{images[6].subtitle}</p>
+                        <p className="text-gray-500 text-sm text-center">{images[6].subtitle}</p>
                     </div>
                 </div>
+
             </div>
         </div>
     );
