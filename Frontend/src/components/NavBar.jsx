@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from "react-router-dom";
 import { HashLink } from 'react-router-hash-link';
+import services from '../servicesData';
 
 function NavBar() {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -90,6 +91,7 @@ function NavBar() {
                     )}
                 </details>
             </li>
+
             <li>
                 <details className="relative" open={openMenu === 'services'}>
                     <summary
@@ -99,21 +101,58 @@ function NavBar() {
                             toggleMenu('services');
                         }}
                     >
-                        <Link to="/services">Services</Link>
+                        Services
                     </summary>
                     {openMenu === 'services' && (
                         <ul className="absolute left-0 bg-customBlue text-white p-2 shadow-md z-20 min-w-max">
-                            <li className="hover:customHvrBlue p-1"><a>Site/Civil Engineering Services</a></li>
-                            <li className="hover:customHvrBlue p-1"><a>Land Surveying Services</a></li>
-                            <li className="hover:customHvrBlue p-1"><a>Environmental and Water Resources</a></li>
-                            <li className="hover:customHvrBlue p-1"><a>Utility Engineering Services</a></li>
-                            <li className="hover:customHvrBlue p-1"><a>Traffic Engineering Services</a></li>
-                            <li className="hover:customHvrBlue p-1"><a>Structural Engineering Services</a></li>
-                            <li className="hover:customHvrBlue p-1"><a>Alternative Delivery - Design-Build</a></li>
+                            {services.map((service) => (
+                                <li key={service.name} className="hover:customHvrBlue p-1">
+                                    <Link to={`/services/${service.name}`}>{service.displayName}</Link>
+                                </li>
+                            ))}
                         </ul>
                     )}
                 </details>
             </li>
+            {/* <li>
+                <details className="relative" open={openMenu === 'services'}>
+                    <summary
+                        className="cursor-pointer"
+                        onClick={(e) => {
+                            e.preventDefault();
+                            toggleMenu('services');
+                        }}
+                    >
+                        <HashLink to="/services#">Services</HashLink>
+                    </summary>
+                    {openMenu === 'services' && (
+                        <ul className="absolute left-0 bg-customBlue text-white p-2 shadow-md z-20 min-w-max">
+                            <li className="hover:customHvrBlue p-1">
+                                <HashLink to="/services/site-civil">Site/Civil Engineering Services</HashLink>
+                            </li>
+                            <li className="hover:customHvrBlue p-1">
+                                <HashLink to="/services/land-surveying">Land Surveying Services</HashLink>
+                            </li>
+                            <li className="hover:customHvrBlue p-1">
+                                <HashLink to="/services/environmental">Environmental and Water Resources</HashLink>
+                            </li>
+                            <li className="hover:customHvrBlue p-1">
+                                <HashLink to="/services/utility">Utility Engineering Services</HashLink>
+                            </li>
+                            <li className="hover:customHvrBlue p-1">
+                                <HashLink to="/services/traffic">Traffic Engineering Services</HashLink>
+                            </li>
+                            <li className="hover:customHvrBlue p-1">
+                                <HashLink to="/services/structural">Structural Engineering Services</HashLink>
+                            </li>
+                            <li className="hover:customHvrBlue p-1">
+                                <HashLink to="/services/design-build">Alternative Delivery - Design-Build</HashLink>
+                            </li>
+                        </ul>
+                    )}
+                </details>
+            </li> */}
+
             <li>
                 <details className='relative' open={openMenu === 'markets'}>
                     <summary
@@ -148,7 +187,7 @@ function NavBar() {
     return (
         <div className="relative z-10" ref={navRef}>
             <div
-               className={`navbar shadow-md fixed top-0 left-0 w-full md:px-20 pr-2 transition-colors duration-300 
+                className={`navbar shadow-md fixed top-0 left-0 w-full md:px-20 pr-2 transition-colors duration-300 
   ${isScrolled ? 'bg-white text-blue-500' : 'bg-white bg-opacity-60 text-blue-500'
                     }`}
             >
@@ -184,7 +223,7 @@ function NavBar() {
                         <ul className="menu menu-horizontal px-1">{navItems}</ul>
                     </div>
                     <div>
-                    <a className="btn sm:text-sm md:text-base sm:whitespace-normal md:whitespace-nowrap text-center bg-base text-customGreen border border-customBlue hover:bg-customGreen hover:text-white px-4 py-2 rounded" href='/ContactUs'>
+                        <a className="btn sm:text-sm md:text-base sm:whitespace-normal md:whitespace-nowrap text-center bg-base text-customGreen border border-customBlue hover:bg-customGreen hover:text-white px-4 py-2 rounded" href='/ContactUs'>
                             Contact us
                         </a>
                     </div>

@@ -45,14 +45,14 @@ const App = () => {
                         </>
                     }
                 />
+
                 <Route
                     path="/services/:serviceName"
                     element={
-                        <>
-                            <ServicesPage />
+                        <><ServicesPage />
                             <Footer />
-                        </>
-                    }
+                        </>}
+
                 />
                 <Route
                     path="/Career"
