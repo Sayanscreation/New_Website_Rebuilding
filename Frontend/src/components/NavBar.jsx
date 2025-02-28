@@ -49,16 +49,16 @@ function NavBar() {
                     {openMenu === 'home' && (
                         <ul className="absolute left-0 bg-customBlue text-white p-2 shadow-md z-20 min-w-max">
                             <li className="hover:customHvrBlue p-1">
-                                <HashLink to="/home#firm-overview">Why Bengal Engineers</HashLink>
+                                <HashLink to="/home#About">Why Bengal Engineers</HashLink>
                             </li>
                             <li className="hover:customHvrBlue p-1">
-                                <HashLink to="/home#meet-subra">Service Offerings</HashLink>
+                                <HashLink to="/home#Services">Service Offerings</HashLink>
                             </li>
                             <li className="hover:customHvrBlue p-1">
-                                <HashLink to="/home#meet-subra">Active Certifications</HashLink>
+                                <HashLink to="/home#Certifications">Active Certifications</HashLink>
                             </li>
                             <li className="hover:customHvrBlue p-1">
-                                <HashLink to="/home#mbe-certifications">Past Performances</HashLink>
+                                <HashLink to="/home#PastPerformances">Past Performances</HashLink>
                             </li>
                         </ul>
                     )}
@@ -99,7 +99,7 @@ function NavBar() {
                             toggleMenu('services');
                         }}
                     >
-                        <Link to="/Services">Services</Link>
+                        <Link to="/services">Services</Link>
                     </summary>
                     {openMenu === 'services' && (
                         <ul className="absolute left-0 bg-customBlue text-white p-2 shadow-md z-20 min-w-max">
@@ -184,7 +184,7 @@ function NavBar() {
                         <ul className="menu menu-horizontal px-1">{navItems}</ul>
                     </div>
                     <div>
-                    <a className="btn sm:text-sm md:text-base sm:whitespace-normal md:whitespace-nowrap text-center bg-base text-customGreen border border-customBlue hover:bg-customGreen hover:text-white px-4 py-2 rounded">
+                    <a className="btn sm:text-sm md:text-base sm:whitespace-normal md:whitespace-nowrap text-center bg-base text-customGreen border border-customBlue hover:bg-customGreen hover:text-white px-4 py-2 rounded" href='/ContactUs'>
                             Contact us
                         </a>
                     </div>

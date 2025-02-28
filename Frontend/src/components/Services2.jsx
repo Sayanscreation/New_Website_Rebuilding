@@ -12,7 +12,7 @@ function Services2() {
     ];
 
     return (
-        <div className='px-4 md:px-10 lg:px-40'>
+        <div id='Services' className='px-4 md:px-10 lg:px-40'>
             <div className='flex justify-center mt-6 mb-6'>
                 <h1 className='text-3xl md:text-5xl text-customBlue font-semibold'>Service Offerings</h1>
             </div>

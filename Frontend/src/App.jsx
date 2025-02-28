@@ -17,6 +17,8 @@ import ProjectDetails2 from "./components/ProjectDetails2";
 import Jobdetails from "./components/Jobdetails";
 import JobApplicationForm from "./components/JobApplicatonForm";
 import Market from "./components/Market";
+import ContactUs from "./components/ContactUs";
+import GetBackForm from "./components/GetBackForm";
 
 
 const App = () => {
@@ -44,7 +46,7 @@ const App = () => {
                     }
                 />
                 <Route
-                    path="/Services"
+                    path="/services/:serviceName"
                     element={
                         <>
                             <ServicesPage />
@@ -117,6 +119,26 @@ const App = () => {
                     element={
                         <>
                             <Market />
+                            <Footer />
+                        </>
+                    }
+                />
+
+                <Route
+                    path="/ContactUs"
+                    element={
+                        <>
+                            <ContactUs />
+                            <Footer />
+                        </>
+                    }
+                />
+
+                <Route
+                    path="/GetBackForm"
+                    element={
+                        <>
+                            <GetBackForm />
                             <Footer />
                         </>
                     }

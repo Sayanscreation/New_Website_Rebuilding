@@ -19,7 +19,7 @@ function About() {
                         </div>
                         {/* Main Heading */}
                         <h1 className="text-3xl md:text-5xl font-bold mb-4 text-customBlue">
-                            Why Bengal Engineers
+                            Why Bengal Engineers 
                         </h1>
                         {/* Brief Text */}
                         <p className="text-justify text-gray-700">

@@ -181,7 +181,7 @@ const CareerPage = () => {
                         </div>
                     ))}
                 </div>
-            </div>
+            </div> 
         </div>
     );
 };

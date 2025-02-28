@@ -11,7 +11,7 @@ function Certifications() {
     }, []);
 
     return (
-        <div className="bg-customBlue overflow-x-hidden mt-6">
+        <div id='Certifications' className="bg-customBlue overflow-x-hidden mt-6">
             <div className="flex justify-center mt-4 text-white">
                 <h1 className="text-2xl md:text-5xl">Active Certifications</h1>
             </div>
@@ -22,7 +22,7 @@ function Certifications() {
              
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 p-2 md:p-6 mx-auto max-w-screen-xl">
                 <div className="bg-white text-customBlue hover:bg-base-200 p-4 rounded shadow" data-aos="fade-right">
-                    <h2 className="text-lg font-semibold text-center">Certification 1</h2>
+                    <h2 className="text-lg font-semibold">Certification 1</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio.</p>
                 </div>
                 <div className="bg-white text-customBlue hover:bg-base-200 p-4 rounded shadow" data-aos="fade-left">
